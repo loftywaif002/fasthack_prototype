@@ -81,7 +81,10 @@ class CampaignModal extends React.Component {
               //access the results here....
               console.log(error);
           });
-            
+
+          this.toggle();
+          window.location.reload();
+             
       }
 
   render() {
