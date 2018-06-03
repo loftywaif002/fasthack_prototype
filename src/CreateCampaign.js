@@ -60,7 +60,7 @@ class CampaignModal extends React.Component {
           campaign_goal
         } = this.state;
 
-           axios.post('/', { 
+           axios.post('https://dh-api.herokuapp.com/api/v1/campaigns', { 
              campaign_name,
              organization_name,
              causes_type, 
@@ -77,7 +77,11 @@ class CampaignModal extends React.Component {
               //access the results here....
               console.log(result);
 
+          }).catch((error) => {
+              //access the results here....
+              console.log(error);
           });
+            
       }
 
   render() {
@@ -124,7 +128,7 @@ class CampaignModal extends React.Component {
         </FormGroup>
         <FormGroup>
            <Label for="qname">Causes Quantity</Label>
-           <Input type="text" name="causes_quantity" value={causes_quantity} id="qname" placeholder="Quantity (optional)" onChange={this.onChange} />
+           <Input type="number" name="causes_quantity" value={causes_quantity} id="qname" placeholder="1,2,3..." onChange={this.onChange} />
         </FormGroup>
         <FormGroup>
            <Label for="tagsname">Causes Tags</Label>
